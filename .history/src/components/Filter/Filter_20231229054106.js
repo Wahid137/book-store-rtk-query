@@ -7,7 +7,7 @@ const Filter = ({ onFilterChange }) => {
 
             <div className="flex items-center space-x-4">
                 <button onClick={() => onFilterChange('all')} className="lws-filter-btn active-filter">All</button>
-                <button onClick={() => onFilterChange('featured')} className="lws-filter-btn">Featured</button>
+                <button onClick={() => onFilterChange('all')} className="lws-filter-btn">Featured</button>
             </div>
         </div>
     );

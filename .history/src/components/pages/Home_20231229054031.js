@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Books from "../Books/Books";
 import Filter from "../Filter/Filter";
 

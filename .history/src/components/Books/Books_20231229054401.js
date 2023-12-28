@@ -6,6 +6,10 @@ import Error from '../ui/Error';
 const Books = ({ filter }) => {
     const { data: books, isLoading, isError } = useGetBooksQuery();
 
+    const filterByStatus = () => {
+
+    }
+
     const filteredBooks =
         filter === 'featured' ? books.filter((book) => book.featured) : books;
 
@@ -21,7 +25,7 @@ const Books = ({ filter }) => {
         content = <Error message="No videos Found!" />
     }
     if (!isLoading && !isError && books?.length > 0) {
-        content = filteredBooks.map((book) => <BookCard key={book.id} book={book} />)
+        content = books.filter(filterByStatus).map((book) => <BookCard key={book.id} book={book} />)
     }
 
     return (

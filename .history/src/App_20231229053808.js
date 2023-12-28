@@ -6,7 +6,11 @@ import "../src/style/style.css";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
+    const [filter, setFilter] = useState('all');
 
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+    };
     return (
         <Router>
             <Navbar />

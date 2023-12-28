@@ -4,12 +4,17 @@ import Edit from "./components/pages/Edit";
 import Home from "./components/pages/Home";
 import "../src/style/style.css";
 import Navbar from "./components/Navbar/Navbar";
+import { useState } from "react";
 
 function App() {
+    const [filter, setFilter] = useState('all');
 
+    const handleFilterChange = (newFilter) => {
+        setFilter(newFilter);
+    };
     return (
         <Router>
-            <Navbar />
+            <Navbar onFilterChange={handleFilterChange} />
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/books/add" element={<Add />} />

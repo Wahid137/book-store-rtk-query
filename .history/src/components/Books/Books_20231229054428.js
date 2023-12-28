@@ -6,6 +6,10 @@ import Error from '../ui/Error';
 const Books = ({ filter }) => {
     const { data: books, isLoading, isError } = useGetBooksQuery();
 
+    const filterByStatus = () => {
+
+    }
+
     const filteredBooks =
         filter === 'featured' ? books.filter((book) => book.featured) : books;
 
