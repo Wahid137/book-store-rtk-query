@@ -1,31 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import BookCard from './BookCard';
 import { useGetBooksQuery } from '../../features/api/apiSlice';
 import Error from '../ui/Error';
 
 const Books = ({ filter, searchItem }) => {
     const { data: books, isLoading, isError } = useGetBooksQuery();
-    const [myBooks, setMyBooks] = useState([]);
 
 
-    useEffect(() => {
-        setMyBooks(books);
-    }, [books]);
+    const filteredBooks = books.filter((book) =>
+        book.title.toLowerCase().includes(searchItem.toLowerCase())
+    );
 
-
-    useEffect(() => {
-        const filteredBooks =
-            filter === 'featured' ? books.filter((book) => book.featured) : books;
-        setMyBooks(filteredBooks)
-    }, [filter, books]);
-
-
-    useEffect(() => {
-        const searchedBooks = books.filter((book) =>
-            book.name.toLowerCase().includes(searchItem.toLowerCase())
-        );
-        setMyBooks(searchedBooks)
-    }, [books, searchItem]);
+    const filteredBooks =
+        filter === 'featured' ? books.filter((book) => book.featured) : books;
 
     // decide what to render
     let content = null;
@@ -39,7 +26,7 @@ const Books = ({ filter, searchItem }) => {
         content = <Error message="No videos Found!" />
     }
     if (!isLoading && !isError && books?.length > 0) {
-        content = myBooks.map((book) => <BookCard key={book.id} book={book} />)
+        content = filteredBooks.map((book) => <BookCard key={book.id} book={book} />)
     }
 
     return (

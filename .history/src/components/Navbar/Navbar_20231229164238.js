@@ -2,7 +2,7 @@ import React from 'react';
 import logo from "../../assets/lws.svg";
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ handleSearchItem, searchItem }) => {
+const Navbar = ({ handleSearchItem }) => {
     return (
         <nav className="py-4 2xl:px-6">
             <div className="container flex items-center justify-between">
@@ -29,10 +29,7 @@ const Navbar = ({ handleSearchItem, searchItem }) => {
                         <input
                             type="text"
                             placeholder="Filter books..."
-                            className="search"
-                            value={searchItem}
-                            onChange={handleSearchItem}
-                            id="lws-search" />
+                            className="search" id="lws-search" />
                     </div>
                 </form>
             </div>

@@ -4,28 +4,19 @@ import { useGetBooksQuery } from '../../features/api/apiSlice';
 import Error from '../ui/Error';
 
 const Books = ({ filter, searchItem }) => {
+    const [data, setData] = useState([books])
     const { data: books, isLoading, isError } = useGetBooksQuery();
-    const [myBooks, setMyBooks] = useState([]);
 
 
-    useEffect(() => {
-        setMyBooks(books);
-    }, [books]);
 
 
-    useEffect(() => {
-        const filteredBooks =
-            filter === 'featured' ? books.filter((book) => book.featured) : books;
-        setMyBooks(filteredBooks)
-    }, [filter, books]);
 
-
-    useEffect(() => {
-        const searchedBooks = books.filter((book) =>
-            book.name.toLowerCase().includes(searchItem.toLowerCase())
-        );
-        setMyBooks(searchedBooks)
-    }, [books, searchItem]);
+    /*  if (filter) {
+ 
+         const filteredBooks =
+             filter === 'featured' ? books.filter((book) => book.featured) : books;
+         setData(filteredBooks)
+     } */
 
     // decide what to render
     let content = null;
@@ -39,7 +30,7 @@ const Books = ({ filter, searchItem }) => {
         content = <Error message="No videos Found!" />
     }
     if (!isLoading && !isError && books?.length > 0) {
-        content = myBooks.map((book) => <BookCard key={book.id} book={book} />)
+        content = data.map((book) => <BookCard key={book.id} book={book} />)
     }
 
     return (

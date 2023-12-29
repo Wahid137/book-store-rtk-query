@@ -24,6 +24,7 @@ const Books = ({ filter, searchItem }) => {
         const searchedBooks = books.filter((book) =>
             book.name.toLowerCase().includes(searchItem.toLowerCase())
         );
+
         setMyBooks(searchedBooks)
     }, [books, searchItem]);
 

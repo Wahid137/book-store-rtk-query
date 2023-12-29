@@ -13,6 +13,7 @@ function App() {
         setSearchItem(e.target.value)
     }
 
+    console.log(searchItem)
     return (
         <Router>
             <Navbar searchItem={searchItem} handleSearchItem={handleSearchItem} />

@@ -24,6 +24,7 @@ const Books = ({ filter, searchItem }) => {
         const searchedBooks = books.filter((book) =>
             book.name.toLowerCase().includes(searchItem.toLowerCase())
         );
+
         setMyBooks(searchedBooks)
     }, [books, searchItem]);
 
@@ -39,7 +40,7 @@ const Books = ({ filter, searchItem }) => {
         content = <Error message="No videos Found!" />
     }
     if (!isLoading && !isError && books?.length > 0) {
-        content = myBooks.map((book) => <BookCard key={book.id} book={book} />)
+        content = filteredBooks.map((book) => <BookCard key={book.id} book={book} />)
     }
 
     return (

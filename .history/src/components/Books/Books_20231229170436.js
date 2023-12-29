@@ -21,11 +21,14 @@ const Books = ({ filter, searchItem }) => {
 
 
     useEffect(() => {
-        const searchedBooks = books.filter((book) =>
-            book.name.toLowerCase().includes(searchItem.toLowerCase())
-        );
-        setMyBooks(searchedBooks)
-    }, [books, searchItem]);
+        const filteredBooks =
+            filter === 'featured' ? books.filter((book) => book.featured) : books;
+        setMyBooks(filteredBooks)
+    }, [filter, books]);
+
+    const searchedBooks = books.filter((book) =>
+        book.name.toLowerCase().includes(searchItem.toLowerCase())
+    );
 
     // decide what to render
     let content = null;
@@ -39,7 +42,7 @@ const Books = ({ filter, searchItem }) => {
         content = <Error message="No videos Found!" />
     }
     if (!isLoading && !isError && books?.length > 0) {
-        content = myBooks.map((book) => <BookCard key={book.id} book={book} />)
+        content = filteredBooks.map((book) => <BookCard key={book.id} book={book} />)
     }
 
     return (

@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { useState } from "react";
 
 function App() {
-    const [searchItem, setSearchItem] = useState("");
+    const [serachItem, setSearchItem] = useState("");
 
     const handleSearchItem = (e) => {
         setSearchItem(e.target.value)
@@ -17,7 +17,7 @@ function App() {
         <Router>
             <Navbar searchItem={searchItem} handleSearchItem={handleSearchItem} />
             <Routes>
-                <Route path="/" element={<Home searchItem={searchItem} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/books/add" element={<Add />} />
                 <Route path="/books/edit/:bookId" element={<Edit />} />
             </Routes>

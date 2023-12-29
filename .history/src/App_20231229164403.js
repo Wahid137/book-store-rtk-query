@@ -15,9 +15,9 @@ function App() {
 
     return (
         <Router>
-            <Navbar searchItem={searchItem} handleSearchItem={handleSearchItem} />
+            <Navbar searchItem={serchItem} handleSearchItem={handleSearchItem} />
             <Routes>
-                <Route path="/" element={<Home searchItem={searchItem} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/books/add" element={<Add />} />
                 <Route path="/books/edit/:bookId" element={<Edit />} />
             </Routes>

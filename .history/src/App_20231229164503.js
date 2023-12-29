@@ -13,11 +13,12 @@ function App() {
         setSearchItem(e.target.value)
     }
 
+    console.log(searchItem)
     return (
         <Router>
             <Navbar searchItem={searchItem} handleSearchItem={handleSearchItem} />
             <Routes>
-                <Route path="/" element={<Home searchItem={searchItem} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/books/add" element={<Add />} />
                 <Route path="/books/edit/:bookId" element={<Edit />} />
             </Routes>

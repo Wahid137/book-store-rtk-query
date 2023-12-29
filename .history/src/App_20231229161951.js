@@ -4,20 +4,14 @@ import Edit from "./components/pages/Edit";
 import Home from "./components/pages/Home";
 import "../src/style/style.css";
 import Navbar from "./components/Navbar/Navbar";
-import { useState } from "react";
 
 function App() {
-    const [searchItem, setSearchItem] = useState("");
-
-    const handleSearchItem = (e) => {
-        setSearchItem(e.target.value)
-    }
 
     return (
         <Router>
-            <Navbar searchItem={searchItem} handleSearchItem={handleSearchItem} />
+            <Navbar />
             <Routes>
-                <Route path="/" element={<Home searchItem={searchItem} />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/books/add" element={<Add />} />
                 <Route path="/books/edit/:bookId" element={<Edit />} />
             </Routes>

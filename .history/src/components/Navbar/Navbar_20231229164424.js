@@ -31,7 +31,6 @@ const Navbar = ({ handleSearchItem, searchItem }) => {
                             placeholder="Filter books..."
                             className="search"
                             value={searchItem}
-                            onChange={handleSearchItem}
                             id="lws-search" />
                     </div>
                 </form>
