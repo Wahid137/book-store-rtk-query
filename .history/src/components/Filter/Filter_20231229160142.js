@@ -14,13 +14,12 @@ const Filter = ({ onFilterChange }) => {
                     setFeaturedSelected(false)
                 }
                 }
-                    className={`lws-filter-btn ${!featuredSelected && "active-filter"
+                    className={`lws-filter-btn ${featuredSelected && "active-filter"
                         }`}>All</button>
                 <button onClick={() => {
                     onFilterChange('featured')
                     setFeaturedSelected(true)
-                }} className={`lws-filter-btn ${featuredSelected && "active-filter"
-                    }`}>Featured</button>
+                }} className="lws-filter-btn">Featured</button>
             </div>
         </div>
     );

@@ -11,16 +11,11 @@ const Filter = ({ onFilterChange }) => {
             <div className="flex items-center space-x-4">
                 <button onClick={() => {
                     onFilterChange('all')
-                    setFeaturedSelected(false)
                 }
                 }
-                    className={`lws-filter-btn ${!featuredSelected && "active-filter"
+                    className={`lws-filter-btn ${featuredSelected && "active-filter"
                         }`}>All</button>
-                <button onClick={() => {
-                    onFilterChange('featured')
-                    setFeaturedSelected(true)
-                }} className={`lws-filter-btn ${featuredSelected && "active-filter"
-                    }`}>Featured</button>
+                <button onClick={() => onFilterChange('featured')} className="lws-filter-btn">Featured</button>
             </div>
         </div>
     );
